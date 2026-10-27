@@ -69,6 +69,7 @@ Veja `README_controles.md`. Resumo:
 - **Controle remoto IR:** botão **4** = aba anterior, **6** = próxima aba, **9** = ESC (no Pegasus abre o menu; no RetroArch, dois toques saem do jogo). **Atenção:** "Voltar" dentro do Pegasus fecha o app e causa uma tela branca (bug do Pegasus como tela inicial); use o 9. Se a tela branca aparecer, reinicie a box.
 - **Controles de jogo:** DualShock 4 por cabo e adaptadores USB 8BitDo funcionam. **Select + Start** juntos, 2 vezes = sai do jogo. O touchpad do DS4/DS5 não vira ponteiro de mouse.
 - **Bluetooth não funciona** (sem chip BT utilizável na box). **Armazenamento USB em massa (pendrive/leitor) não foi reconhecido** nas portas testadas; use o cartão SD.
+- **Portas USB / dongle 8BitDo:** o dongle funcionou normalmente na box do autor durante o desenvolvimento. No fim dos testes, as portas USB passaram a entregar pouca energia (led do dongle fraco e intermitente, nada detectado). Não foi possível investigar mais. O autor não tem mais a box; **testes de controles, portas USB e energia dependem de outras pessoas**.
 
 ## O que há na imagem
 - Base: a imagem "limpa v1.0" (sem os apps de adware de fábrica, sem `/system/preinstall`, sem gerenciador de arquivos nem OTA do fabricante; `ro.adb.secure=1`, swap em zram, tela de boot nova).

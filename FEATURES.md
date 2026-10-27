@@ -44,6 +44,7 @@ Colocar jogos, Capas dos jogos, **Reiniciar a TV Box** (imediato), tela inicial 
 ## Não testado / não suportado
 - Outras boxes, outros firmwares ou lotes: só a build de fábrica descrita no README foi testada; relatos de outros são bem-vindos.
 - Recuperação com a box sem boot (boot por cartão SD, FEL/PhoenixSuit, recovery de fábrica).
+- **Portas USB / dongle 8BitDo:** o dongle funcionou normalmente na box do autor durante o desenvolvimento. No fim dos testes, as portas USB passaram a entregar pouca energia (led do dongle fraco e intermitente, nada detectado). Não foi possível investigar mais. O autor não tem mais a box; **testes de controles, portas USB e energia dependem de outras pessoas**.
 - **Bluetooth** (sem chip utilizável) e **armazenamento USB** (pendrive e leitor não reconhecidos).
 - PS1 e jogos pesados sob 1 GB de RAM podem engasgar.
 - Ligar a porta USB da box a um computador: não faça (ver `USB_PC_AVISO.md`).
