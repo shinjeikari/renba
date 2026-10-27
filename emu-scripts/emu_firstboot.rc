@@ -1,0 +1,25 @@
+on property:sys.boot_completed=1
+    start emu_firstboot
+    start emu_covers
+    start emu_help
+
+service emu_firstboot /system/bin/emu_firstboot.sh
+    oneshot
+    disabled
+    user shell
+    group shell sdcard_rw media_rw
+    seclabel u:r:shell:s0
+
+service emu_covers /system/bin/emu_covers.sh
+    oneshot
+    disabled
+    user shell
+    group shell sdcard_rw media_rw inet
+    seclabel u:r:shell:s0
+
+# pagina local (so 127.0.0.1) do atalho "Colocar jogos": liga o servidor FTP e mostra IP/senha. Fica de pe; reinicia se cair.
+service emu_help /system/bin/nc -s 127.0.0.1 -p 8099 -L sh /system/bin/emu_ftp_help.sh
+    disabled
+    user shell
+    group shell sdcard_rw media_rw inet
+    seclabel u:r:shell:s0

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Dispositivos de entrada ignorados pelo Android: o touchpad dos controles de PS4/PS5 vira um "mouse" e mostra o ponteiro na tela.
+     Os botoes, D-pad e analogicos sao outro dispositivo e continuam funcionando. -->
+<devices>
+    <device name="Sony Interactive Entertainment Wireless Controller Touchpad" />
+    <device name="Sony Computer Entertainment Wireless Controller Touchpad" />
+    <device name="Wireless Controller Touchpad" />
+    <device name="DualSense Wireless Controller Touchpad" />
+    <device name="Sony Interactive Entertainment DualSense Wireless Controller Touchpad" />
+    <device name="PS4 Controller Touchpad" />
+</devices>

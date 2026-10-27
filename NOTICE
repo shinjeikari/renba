@@ -1,0 +1,12 @@
+RENBA - TV Box "MXQ Pro 4K" retro (projeto gratuito, sem fins lucrativos; nao pode ser vendido)
+
+Esta imagem reune software de terceiros, cada um sob a sua licenca. Lista completa, autores e links: README_creditos.md.
+- Pegasus Frontend, RetroArch, Aurora Store: GPL-3.0. Primitive FTPd: Apache-2.0. Android/AOSP: Apache-2.0 e outras.
+- Nucleos: fceumm, gambatte, pcsx_rearmed, stella (GPL-2.0); mgba (MPL-2.0); snes9x, genesis_plus_gx, picodrive (USO NAO COMERCIAL).
+- Codigo-fonte dos componentes GPL/MPL: nos repositorios dos projetos linkados em README_creditos.md (RetroArch/Libretro: https://github.com/libretro; Pegasus: https://github.com/mmatyas/pegasus-frontend; Aurora: https://gitlab.com/AuroraOSS/AuroraStore).
+- Jogos de teste livres: Thwaite (GPL-3.0), Libbet (Zlib), 240p Test Suite (GPL-2.0), Sure Instinct (MIT), Platformer/SGDK (MIT), n00bdemo/PSn00bSDK (MPL-2.0), Raposa do Sol (MIT), Berta and Butterflies (MIT).
+- Robo do Android: obra criada e compartilhada pelo Google, usada conforme a licenca Creative Commons Atribuicao 4.0 (CC BY 4.0).
+- Fundos dos consoles, tela de boot "RENBA" e outras imagens de terceiros: pertencem aos seus donos; incluidas por conta e responsabilidade do autor; remocao a pedido (abra uma issue).
+- Nenhuma ROM comercial e nenhuma BIOS. Marcas citadas pertencem aos seus donos; nada aqui e afiliado a elas.
+- Firmware, kernel e drivers da caixa: do fabricante original e da Allwinner, sob as licencas originais.
+SEM GARANTIA. Use por sua conta e risco.
