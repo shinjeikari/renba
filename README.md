@@ -1,6 +1,6 @@
 # RENBA — TV Box "MXQ Pro 4K" vira console retrô
 
-**RENBA** é uma imagem Android 10 enxuta para **uma build específica de fábrica** da TV Box "MXQ Pro 4K" (Allwinner sun50iw9p1 / H313), já pronta para jogar: tela inicial **Pegasus** com uma aba por console e capas, **RetroArch** com 8 núcleos, 8 jogos de teste livres e atalhos para colocar jogos pelo computador **sem tirar o cartão SD**.
+**RENBA** é uma imagem Android 10 enxuta, **instalada, configurada e testada numa build específica de fábrica** da TV Box "MXQ Pro 4K" (Allwinner sun50iw9p1 / H313), já pronta para jogar: tela inicial **Pegasus** com uma aba por console e capas, **RetroArch** com 8 núcleos, 8 jogos de teste livres e atalhos para colocar jogos pelo computador **sem tirar o cartão SD**.
 
 Consoles: NES, Game Boy / Color, Game Boy Advance, Super Nintendo, Mega Drive, Master System, Atari 2600 e PlayStation 1.
 
@@ -8,7 +8,7 @@ Consoles: NES, Game Boy / Color, Game Boy Advance, Super Nintendo, Mega Drive, M
 
 > **AVISOS GRAVES**
 > - **Não oficial, sem garantia.** Um erro pode deixar a box sem boot. **Não existe caminho de recuperação testado** (FEL/PhoenixSuit e boot por cartão SD nunca foram testados; ver "Se der errado").
-> - **Só serve para a build exata abaixo.** "MXQ Pro 4K 5G" é nome de vários lotes; outras boxes podem ter firmware/NAND diferentes. O `check_compat.sh` confere e o `flash_release.sh` recusa se não bater.
+> - **Foi instalada e testada somente na build de fábrica descrita abaixo, numa única box. Em outras não foi testada** (não sabemos se funciona). "MXQ Pro 4K 5G" é nome de vários lotes e outras boxes podem ter firmware/NAND diferentes. Por segurança, o `check_compat.sh` confere e o `flash_release.sh` se recusa a gravar se a box não for igual à testada. **Testes em outras boxes são bem-vindos** (veja "Testou em outra box?").
 > - **NÃO ligue a porta USB da box a um computador** (ver `USB_PC_AVISO.md`). A instalação é por adb **pela rede**.
 > - A imagem contém o firmware do fabricante e apps do Google (GMS) que já vinham na box. O build de fábrica é `eng`/`test-keys` (adbd root); esta imagem só exige autorização do adb, não a torna um sistema de produção.
 > - **Fotos e imagens de terceiros** (fundos dos consoles, tela de boot "RENBA", robô do Android) estão incluídas por conta do autor. Donos que queiram a retirada: abram uma *issue*.
@@ -24,7 +24,7 @@ Uma aba por console, com capa e fundo. Os prints mostram só os jogos de teste l
 | ![PlayStation](screenshots/05_playstation.png) | ![Aba Android](screenshots/06_aba_android.png) |
 | ![Aba Sistema](screenshots/07_aba_sistema.png) | |
 
-## Build compatível (conferida pelo `check_compat.sh`)
+## Build em que foi testada (conferida pelo `check_compat.sh`)
 - `ro.board.platform=cupid`, `ro.product.device=titan-p1`
 - `ro.build.display.id = titan_p1-eng 10 QP1A.191105.004 eng.akrd6.20210505.131222 test-keys`
 - `by-name/super -> nand0p4`, 2147483648 bytes
@@ -34,6 +34,12 @@ Uma aba por console, com capa e fundo. Os prints mostram só os jogos de teste l
 
 ## Código-fonte dos scripts do sistema
 Em `emu-scripts/`: `emu_firstboot.sh` (primeiro boot e todo boot), `emu_covers.sh` (capas), `emu_ftp_help.sh` (telas "Colocar jogos"/"Capas"/"Reiniciar"), `emu_refresh.sh` (atualiza o menu só se houve novidade), o serviço `emu_firstboot.rc`, o mapa do controle remoto e a lista de touchpads ignorados. São os mesmos que estão dentro da imagem.
+
+## Testou em outra box?
+Se a sua box parece ser parecida (mesma plataforma Allwinner, outro lote ou firmware), **por sua conta e risco** você pode adaptar os scripts e testar, **sempre com o backup do seu `super` feito antes**. O que ajuda quem for tentar:
+- Rode o `check_compat.sh`: ele mostra, item por item, o que difere da box testada (plataforma, build, partição `super`, tamanho e hash).
+- Os 269 blocos de `blocks.txt` só valem para quem parte exatamente do firmware de fábrica testado (ou da imagem limpa); em outra base, a imagem inteira (`renba_super.img.xz`) é um ponto de comparação, não um pacote pronto.
+- Se testar, abra uma *issue* no repositório contando o modelo, o resultado de `getprop ro.build.display.id` e o que funcionou ou falhou. Isso entra na tabela de testes.
 
 ## O que você precisa
 - Computador com `adb`, `xz` e `sha256sum` (Linux, macOS ou Git Bash no Windows), na **mesma rede** da box. Na box, ligue "USBV device mode" nas opções de desenvolvedor (isso desativa o mouse/teclado da porta ao lado do AV até desligar) e autorize o adb na tela.
@@ -101,4 +107,4 @@ O U-Boot (`bootloader`), o `boot` e o `recovery` **não são alterados**: só a 
 Muito obrigado a quem escreveu e liberou os projetos usados: Android/AOSP, Pegasus Frontend, RetroArch/Libretro, os autores de cada núcleo, Aurora Store, TV Bro, Primitive FTPd, libretro-thumbnails e os autores dos jogos de teste. Lista completa, licenças e links em `README_creditos.md`. Os núcleos Snes9x, Genesis Plus GX e PicoDrive **proíbem uso comercial**; por isso esta imagem **não pode ser vendida**. O código-fonte dos componentes GPL/MPL está nos repositórios linkados em `README_creditos.md`.
 
 ## English (short)
-Unofficial retro-gaming image for one specific "MXQ Pro 4K" firmware build (hashes above): Pegasus frontend + RetroArch with 8 libretro cores (NES, GB/GBC, GBA, SNES, Mega Drive, Master System, Atari 2600, PS1), 8 free homebrew test ROMs, and an on-box FTP shortcut to add games to the SD card from a PC. All user content lives on the SD card. Free, non-commercial only (some cores forbid commercial use). Tested on a single unit; the flash and restore scripts of this exact version have **not** been run on a factory-state box (the block list was verified offline), other units are untested, and there is no tested recovery path. Back up your `super` first, run `check_compat.sh`, and never connect the box's USB port to a PC (`USB_PC_AVISO.md`). Contains OEM firmware and Google apps; third-party images (backgrounds, boot animation, Android robot, CC BY 4.0) are included at the author's responsibility. No commercial ROMs or BIOS.
+Unofficial retro-gaming image installed and tested on one specific "MXQ Pro 4K" firmware build (hashes above); other builds are untested, and reports are welcome: Pegasus frontend + RetroArch with 8 libretro cores (NES, GB/GBC, GBA, SNES, Mega Drive, Master System, Atari 2600, PS1), 8 free homebrew test ROMs, and an on-box FTP shortcut to add games to the SD card from a PC. All user content lives on the SD card. Free, non-commercial only (some cores forbid commercial use). Tested on a single unit; the flash and restore scripts of this exact version have **not** been run on a factory-state box (the block list was verified offline), other units are untested, and there is no tested recovery path. Back up your `super` first, run `check_compat.sh`, and never connect the box's USB port to a PC (`USB_PC_AVISO.md`). Contains OEM firmware and Google apps; third-party images (backgrounds, boot animation, Android robot, CC BY 4.0) are included at the author's responsibility. No commercial ROMs or BIOS.

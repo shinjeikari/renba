@@ -42,7 +42,7 @@ Colocar jogos, Capas dos jogos, **Reiniciar a TV Box** (imediato), tela inicial 
 - Scripts de gravação com conferência de **cada bloco** e da imagem inteira; retomam sozinhos se o Wi‑Fi cair.
 
 ## Não testado / não suportado
-- Outras boxes, outros firmwares ou lotes.
+- Outras boxes, outros firmwares ou lotes: só a build de fábrica descrita no README foi testada; relatos de outros são bem-vindos.
 - Recuperação com a box sem boot (boot por cartão SD, FEL/PhoenixSuit, recovery de fábrica).
 - **Bluetooth** (sem chip utilizável) e **armazenamento USB** (pendrive e leitor não reconhecidos).
 - PS1 e jogos pesados sob 1 GB de RAM podem engasgar.
